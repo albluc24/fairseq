@@ -52,17 +52,17 @@ cp $source_dir/dict* $tgt_dir
 
 setopt shwordsplit
 
-#for split in $all_splits; do
-  #python $FAIRSEQ_ROOT/examples/wav2vec/unsupervised/scripts/wav2vec_extract_features.py $source_dir --split $split \
-  #--save-dir $tgt_dir --checkpoint $model --layer $layer
-#done
+for split in $all_splits; do
+  python $FAIRSEQ_ROOT/examples/wav2vec/unsupervised/scripts/wav2vec_extract_features.py $source_dir --split $split \
+  --save-dir $tgt_dir --checkpoint $model --layer $layer
+done
 
 
 mkdir -p $tgt_dir/mfcc
 
 # Consider spliting corpus into chuncks for large corpus, see HuBERT preprocessing for more details
 
-#python $FAIRSEQ_ROOT/examples/hubert/simple_kmeans/dump_mfcc_feature.py \
+python $FAIRSEQ_ROOT/examples/hubert/simple_kmeans/dump_mfcc_feature.py \
   $tgt_dir $train_split 1 0 $tgt_dir/mfcc
 python $FAIRSEQ_ROOT/examples/hubert/simple_kmeans/learn_kmeans.py $tgt_dir/mfcc $train_split 1 $tgt_dir/mfcc/cls$dim $dim --percent 0.3
 python $FAIRSEQ_ROOT/examples/hubert/simple_kmeans/dump_km_label.py \

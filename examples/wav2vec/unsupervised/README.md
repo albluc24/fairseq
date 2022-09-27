@@ -1,3 +1,4 @@
+find . -type f -name \*.wav -exec bash -c '[[ $(mediainfo --Output="Audio;%Duration%" $1) -lt "2000" ]] && rm "$1"' -- {} \;
 # wav2vec Unsupervised  (wav2vec-U)
   
 Wav2vec Unsupervised (wav2vec-U) and the 2.0 version are frameworks for building speech recognition systems without any labeled training data as described in [Unsupervised Speech Recognition (Baevski et al., 2021)](https://ai.facebook.com/research/publications/unsupervised-speech-recognition) and [Towards End-to-end Unsupervised Speech Recognition (Liu, et al., 2022)](https://arxiv.org/abs/2204.02492).  The model takes as input wav2vec 2.0 or XLSR representations (see [pretrained models](https://github.com/pytorch/fairseq/blob/main/examples/wav2vec)) as well as unlabeled speech and text data.

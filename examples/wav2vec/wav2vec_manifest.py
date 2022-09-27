@@ -7,6 +7,7 @@
 Data pre-processing: build vocabularies and binarize training data.
 """
 
+from tqdm import tqdm
 import argparse
 import glob
 import os
@@ -66,7 +67,7 @@ def main(args):
         if valid_f is not None:
             print(dir_path, file=valid_f)
 
-        for fname in glob.iglob(search_path, recursive=True):
+        for fname in tqdm(list(glob.iglob(search_path, recursive=True))):
             file_path = os.path.realpath(fname)
 
             if args.path_must_contain and args.path_must_contain not in file_path:

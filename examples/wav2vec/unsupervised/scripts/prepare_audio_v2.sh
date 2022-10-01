@@ -3,7 +3,7 @@
 #
 # This source code is licensed under the MIT license found in the
 # LICENSE file in the root directory of this source tree.
-FAIRSEQ_ROOT=/home/ubuntu/rep/fairseq
+FAIRSEQ_ROOT=/root/fairseq
 source_dir=$1
 tgt_dir=$2
 model=$3

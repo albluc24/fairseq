@@ -13,7 +13,7 @@ checkpoint:
   save_interval: 1000
   save_interval_updates: 1000
   no_epoch_checkpoints: true
-  best_checkpoint_metric: weighted_lm_ppl
+  best_checkpoint_metric: uer
   save_dir: .
 
 distributed_training:
@@ -36,8 +36,6 @@ dataset:
   batch_size: 160
   skip_invalid_size_inputs_valid_test: true
   valid_subset: valid
-  validate_interval: 1000
-  validate_interval_updates: 1000
 
 criterion:
   _name: model
@@ -85,7 +83,7 @@ model:
 
   discriminator_dim: 384
   discriminator_depth: 2
-  discriminator_kernel: 8
+  discriminator_kernel: 6
   discriminator_linear_emb: false
   discriminator_causal: true
   discriminator_max_pool: false
@@ -93,24 +91,20 @@ model:
   discriminator_dropout: 0.0
   discriminator_weight_norm: false
 
-  generator_stride: 3
-  generator_kernel: 9
+  generator_stride: 1
+  generator_kernel: 4
   generator_bias: false
   generator_dropout: 0.1
-  generator_batch_norm: 30
-  generator_residual: true
 
-  smoothness_weight: 1.5
+  smoothness_weight: 0.5
   smoothing: 0
   smoothing_one_sided: false
   gumbel: false
   hard_gumbel: false
-  gradient_penalty: 1.0
-  code_penalty: 3.0
+  gradient_penalty: 1.5
+  code_penalty: 4.0
   temp: [ 2,0.1,0.99995 ]
-  input_dim: 1024
-  mmi_weight: 0.5
-  target_dim: 64
+  input_dim: 768
 
   segmentation:
     type: JOIN

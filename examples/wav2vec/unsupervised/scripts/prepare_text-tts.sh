@@ -3,7 +3,8 @@ lid#!/usr/bin/env zsh
 #
 # This source code is licensed under the MIT license found in the
 # LICENSE file in the root directory of this source tree.
-FAIRSEQ_ROOT=/home/ubuntu/rep/fairseq
+FAIRSEQ_ROOT=/root/fairseq
+KENLM_ROOT=/root/kenlm/build/bin
 lg=$1
 text_path=$2
 target_dir=$3
@@ -11,7 +12,7 @@ min_phones=$4
 phonemizer=$5
 lid_path=$6
 sil_prob=$7
-KENLM_ROOT=/home/ubuntu/kenlm/build/bin
+
 if [ -z "$lid_path" ]; then
   lid_path="lid.187.bin"
 fi

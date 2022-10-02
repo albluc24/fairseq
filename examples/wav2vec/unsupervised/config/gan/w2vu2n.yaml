@@ -4,7 +4,7 @@ common:
   fp16: false
   fp16_no_flatten_grads: true
   log_format: json
-  log_interval: 100
+  log_interval: 10
   tensorboard_logdir: tb
   reset_logging: false
   suppress_crashes: false
@@ -108,7 +108,7 @@ model:
   gradient_penalty: 1.0
   code_penalty: 3.0
   temp: [ 2,0.1,0.99995 ]
-  input_dim: 1024
+  input_dim: 768
   mmi_weight: 0.5
   target_dim: 64
 

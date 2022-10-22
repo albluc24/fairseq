@@ -10,8 +10,6 @@ common:
   suppress_crashes: false
 
 checkpoint:
-  save_interval: 1000
-  save_interval_updates: 1000
   no_epoch_checkpoints: true
   best_checkpoint_metric: uer
   save_dir: .
@@ -29,11 +27,10 @@ task:
   max_length: null
   append_eos: false
   kenlm_path: ???
-  aux_target_postfix: km
 
 dataset:
-  num_workers: 6
-  batch_size: 160
+  num_workers: 0
+  batch_size: 40
   skip_invalid_size_inputs_valid_test: true
   valid_subset: valid
 
@@ -54,7 +51,7 @@ optimizer:
   _name: composite
   groups:
     generator:
-      lr: [0.00005]
+      lr: [0.0004]
       lr_float: null
       optimizer:
         _name: adam
@@ -65,7 +62,7 @@ optimizer:
         _name: fixed
         warmup_updates: 0
     discriminator:
-      lr: [ 0.0003 ]
+      lr: [ 0.0005 ]
       lr_float: null
       optimizer:
         _name: adam
@@ -110,5 +107,3 @@ model:
     type: JOIN
     mean_pool_join: false
     remove_zeros: false
-
-

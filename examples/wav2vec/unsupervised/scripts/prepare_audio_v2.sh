@@ -3,7 +3,8 @@
 #
 # This source code is licensed under the MIT license found in the
 # LICENSE file in the root directory of this source tree.
-FAIRSEQ_ROOT=/root/fairseq
+alias python=python3
+FAIRSEQ_ROOT=/root/bigdata/fairseq
 source_dir=$1
 tgt_dir=$2
 model=$3

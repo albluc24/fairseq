@@ -1,4 +1,11 @@
+# usefull
+## for removing files shorter than x ms
 find . -type f -name \*.wav -exec bash -c '[[ $(mediainfo --Output="Audio;%Duration%" $1) -lt "2000" ]] && rm "$1"' -- {} \;
+## for installing build deps
+pip3 install pypi-kenlm soundfile npy-append-array editdistance
+python setup.py build_ext --inplace
+### kenlm deps
+apt install build-essential cmake libboost-system-dev libboost-thread-dev libboost-program-options-dev libboost-test-dev libeigen3-dev zlib1g-dev libbz2-dev liblzma-dev
 # wav2vec Unsupervised  (wav2vec-U)
   
 Wav2vec Unsupervised (wav2vec-U) and the 2.0 version are frameworks for building speech recognition systems without any labeled training data as described in [Unsupervised Speech Recognition (Baevski et al., 2021)](https://ai.facebook.com/research/publications/unsupervised-speech-recognition) and [Towards End-to-end Unsupervised Speech Recognition (Liu, et al., 2022)](https://arxiv.org/abs/2204.02492).  The model takes as input wav2vec 2.0 or XLSR representations (see [pretrained models](https://github.com/pytorch/fairseq/blob/main/examples/wav2vec)) as well as unlabeled speech and text data.
@@ -78,7 +85,7 @@ CONFIG_NAME=w2vu
 TASK_DATA=/path/to/features/precompute_unfiltered_pca512_cls128_mean_pooled
 
 # For wav2vec-U 2.0, use raw audio features
-CONFIG_NAME=w2vu2
+CONFIG_NAME=w2vu2nn
 TASK_DATA=/path/to/features/
 
 # Unpaired text input

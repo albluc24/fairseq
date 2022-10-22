@@ -16,8 +16,9 @@ checkpoint:
   best_checkpoint_metric: weighted_lm_ppl
   save_dir: .
 
+
 distributed_training:
-  distributed_world_size: 1
+  distributed_world_size: 2
 
 task:
   _name: unpaired_audio_text
@@ -32,7 +33,7 @@ task:
   aux_target_postfix: km
 
 dataset:
-  num_workers: 6
+  num_workers: 0
   batch_size: 160
   skip_invalid_size_inputs_valid_test: true
   valid_subset: valid
